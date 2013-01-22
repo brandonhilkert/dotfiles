@@ -1,0 +1,30 @@
+[user]
+  name = Brandon Hilkert
+  email = brandonhilkert@gmail.com
+[core]
+  editor = vim
+  excludesfile = /Users/bhilkert/.gitignore
+[alias]
+  co = checkout
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  br = branch
+  ci = commit
+  amend = commit --amend
+  aa = add --all
+  st = status
+  pr = remote prune origin
+  unstage = reset HEAD --
+  last = log -1 -p HEAD
+  visual = !gitk
+  create = !sh -c 'git co -b \"$0\" && git push origin \"$0\" && git config \"branch.$0.remote\" origin && git config \"branch.$0.merge\" \"refs/heads/$0\"'
+  purge = !sh -c 'git branch -d \"$0\" && git push origin :\"$0\"'
+  fuckit = !git clean -d -f && git reset --hard
+[color]
+  ui = true
+[format]
+[rerere]
+  enabled = 1
+[push]
+  default = current
+[heroku]
+  account = personal
