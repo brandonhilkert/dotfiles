@@ -3,4 +3,4 @@
 cp -f ./bash/.* ~/
 cp -f ./git/.* ~/
 cp -f ./vim/.* ~/
-.osx/setup-defaults
+.osx/setup.sh
