@@ -5,8 +5,13 @@ set -x
 # symlink settings in
 sublime_dir=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
 mv "$sublime_dir/User" "$sublime_dir/User.backup"
-ln -s "~/Dropbox/dotfiles/sublime2/User" "$sublime_dir"
+mkdir "$sublime_dir/User"
+cp -R ~/Dropbox/code/dotfiles/sublime2/User/* "$sublime_dir/User"
+# ln -s "~/Dropbox/code/dotfiles/sublime2/User" "$sublime_dir"
 
 # Grab the Soda theme
 cd "$sublime_dir"
 git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"
+
+# Setup terminal shortcut
+ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin
