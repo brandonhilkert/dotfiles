@@ -25,6 +25,7 @@ set number
 set wildmenu
 set wildmode=longest,list
 set visualbell
+
 " Store temporary files in a central spot
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -37,8 +38,20 @@ set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set autoindent
 
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+" Height of the command bar
+set cmdheight=2
+
 " Remove trailing whitepsace from Ruby files on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
 " Searching
 set hlsearch                    " highlight matches
@@ -47,6 +60,18 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 let mapleader=","
+
+" Fast Saving
+nmap <leader>w :w!<cr>
+
+" Fast Save/exit
+nmap <leader>x :x<cr>
+
+" Close the current buffer
+map <leader>bd :bd<cr>
+
+" Close all the buffers
+map <leader>ba :1,1000 bd!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -63,7 +88,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command-T
