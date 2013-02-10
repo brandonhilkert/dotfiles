@@ -9,8 +9,8 @@ filetype plugin indent on       " load file type plugins + indentation
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
-:set guifont=Menlo:h12
-:color solarized
+:set guifont=Menlo:h14
+:color railscasts
 :set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
