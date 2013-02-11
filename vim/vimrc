@@ -11,7 +11,6 @@ filetype plugin indent on       " load file type plugins + indentation
 :set t_Co=256 " 256 colors
 :set guifont=Menlo:h14
 :color railscasts
-:set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
