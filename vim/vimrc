@@ -10,9 +10,10 @@ filetype plugin indent on       " load file type plugins + indentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set guifont=Menlo:h14
-:color railscasts
+":color Tomorrow-Night-Eighties
+:set background=dark
+:color solarized
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
@@ -21,7 +22,7 @@ set laststatus=2
 set showmatch
 set showcmd                     " display incomplete commands
 set ruler
-set number
+set nonumber
 set wildmenu
 set wildmode=longest,list
 set visualbell
@@ -45,6 +46,15 @@ set so=7
 
 " Height of the command bar
 set cmdheight=2
+
+" Presever undo across sessions
+if exists("&undodir")
+  set undodir=~/.vim-tmp/undo//
+  set undofile
+endif
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
 
 " Remove trailing whitepsace from Ruby files on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -108,13 +118,6 @@ let g:CommandTMinHeight=4
 set wildignore+=tmp/**,*.scssc,*.sassc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OPEN FILES IN DIRECTORY OF CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>e :e <c-r>=expand("%:p:h") . '/'<cr>
-map <leader>s :split <c-r>=expand("%:p:h") . '/'<cr>
-map <leader>v :vnew <c-r>=expand("%:p:h") . '/'<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,21 +130,6 @@ function! CleverTab()
     endif
 endfunction
 inoremap <tab> <c-r>=CleverTab()<cr>
-inoremap <s-tab> <c-n>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>r :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
@@ -169,7 +157,18 @@ map <Leader>d :bd<Return>
 nnoremap <c-n> :cn<cr>
 nnoremap <c-p> :cp<cr>
 
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+map <leader>e :e <c-r>=expand("%:p:h") . '/'<cr>
+
+" Open the associated file in a horizontal split (ruby)
+map <leader>s :AS<cr>
+
+" Open the associated file in a vertical split (ruby)
+map <leader>v :AV<cr>
+
 "save & quit & reload faster
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
+
+map <Leader>r :w\|!spec --colour -f nested %<cr>
