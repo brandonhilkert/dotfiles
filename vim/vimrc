@@ -12,7 +12,7 @@ filetype plugin indent on       " load file type plugins + indentation
 :set guifont=Menlo:h14
 ":color Tomorrow-Night-Eighties
 :set background=dark
-:color solarized
+:color default
 
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
