@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/bhilkert/Dropbox/code/espn'
-let g:netrw_dirhist_2='/Users/bhilkert/Dropbox/code/simpletext'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/bhilkert/Dropbox/code/pipeline_deals_web'
+let g:netrw_dirhist_2='/Users/bhilkert/Dropbox/code/bh'
+let g:netrw_dirhist_3='/Users/bhilkert/Dropbox/code/pipeline_deals_web'
+let g:netrw_dirhist_4='/Users/bhilkert/Dropbox/code/bh'
+let g:netrw_dirhist_5='/Users/bhilkert/Dropbox/code/grocery'
+let g:netrw_dirhist_6='/Users/bhilkert/Dropbox/code/espn'
+let g:netrw_dirhist_7='/Users/bhilkert/Dropbox/code/pipeline_deals_web'
+let g:netrw_dirhist_8='/Users/bhilkert/Dropbox/code/dotfiles/vim/vim/bundle'
+let g:netrw_dirhist_9='/Users/bhilkert/Dropbox/code/pipeline_deals_web'
