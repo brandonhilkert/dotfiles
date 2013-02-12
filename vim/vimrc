@@ -166,6 +166,8 @@ let g:vroom_use_binstubs=1
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>a :Ack<space>
 map <Leader>d :bd<Return>
+nnoremap <c-n> :cn<cr>
+nnoremap <c-p> :cp<cr>
 
 " Switch to alternate file
 map <c-Tab> :bnext<cr>
