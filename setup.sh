@@ -8,6 +8,5 @@ ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitconfig /Users/bhilkert/.git
 ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitignore /Users/bhilkert/.gitignore
 
 ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vimrc /Users/bhilkert/.vimrc
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vim /Users/bhilkert/.vim
 
 osx/setup.sh
