@@ -24,6 +24,7 @@ Bundle 'tpope/vim-git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'tomasr/molokai'
 
 filetype plugin indent on       " load file type plugins + indentation
 
@@ -73,6 +74,9 @@ set so=7
 
 " Height of the command bar
 set cmdheight=2
+
+" Set ex history higher
+set history=1000
 
 " Presever undo across sessions
 if exists("&undodir")
