@@ -1,7 +1,29 @@
 set nocompatible                " choose no compatibility with legacy vi
 set encoding=utf-8
+filetype off
 
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'wincent/Command-T'
+Bundle 'scrooloose/nerdtree'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'nono/vim-handlebars'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on       " load file type plugins + indentation
 
