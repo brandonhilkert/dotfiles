@@ -50,7 +50,7 @@ set noshowmode
 set showmatch
 set showcmd                     " display incomplete commands
 set ruler
-set nonumber
+set number
 set wildmenu
 set wildmode=longest,list
 set visualbell
