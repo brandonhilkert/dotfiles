@@ -32,11 +32,13 @@ filetype plugin indent on       " load file type plugins + indentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set t_Co=256 " 256 colors
-:set guifont=Menlo:h14
+set t_Co=256 " 256 colors
+set guifont=Menlo:h14
 ":color Tomorrow-Night-Eighties
-:set background=dark
-:color default
+":set background=dark
+color default
+
+highlight LineNr ctermfg=236
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
