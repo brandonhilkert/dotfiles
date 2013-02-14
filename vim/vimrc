@@ -35,9 +35,7 @@ set t_Co=256 " 256 colors
 set guifont=Menlo:h14
 ":color Tomorrow-Night-Eighties
 ":set background=dark
-color default
-
-highlight LineNr ctermfg=236
+colorscheme default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -171,3 +169,12 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 
 map <Leader>r :w\|!spec --colour -f nested %<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color stuff b/c it doesn't work after setting the colorscheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight LineNR ctermfg=8
+highlight Visual term=none cterm=none ctermbg=240
+highlight Comment ctermfg=8
+highlight Search ctermfg=16 ctermbg=222
+highlight CursorLine term=none cterm=none ctermbg=8
