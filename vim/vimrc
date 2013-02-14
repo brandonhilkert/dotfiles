@@ -25,6 +25,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tomasr/molokai'
+Bundle 'jgdavey/vim-railscasts'
 
 filetype plugin indent on       " load file type plugins + indentation
 
