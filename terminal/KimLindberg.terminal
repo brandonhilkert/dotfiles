@@ -231,7 +231,7 @@
 	<key>UseBrightBold</key>
 	<true/>
 	<key>VisualBell</key>
-	<true/>
+	<false/>
 	<key>columnCount</key>
 	<integer>150</integer>
 	<key>deleteSendsBackspace</key>
