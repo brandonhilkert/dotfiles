@@ -56,6 +56,7 @@ set wildmode=longest,list
 set visualbell
 set splitright
 set splitbelow
+set clipboard=unnamed
 
 " Store temporary files in a central spot
 set backup
