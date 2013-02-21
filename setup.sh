@@ -9,4 +9,6 @@ ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitignore /Users/bhilkert/.git
 
 ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vimrc /Users/bhilkert/.vimrc
 
+ln -fns /Users/bhilkert/Dropbox/code/dotfiles/ack/ackrc /Users/bhilkert/.ackrc
+
 osx/setup.sh

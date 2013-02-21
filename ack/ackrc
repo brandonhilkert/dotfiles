@@ -1,0 +1,5 @@
+--type-set=haml=.haml
+--type-set=feature=.feature
+--type-set=sass=.sass
+--type-set=coffee=.coffee
+--nosql
