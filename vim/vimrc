@@ -8,8 +8,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 Bundle 'tomtom/tcomment_vim'
+Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/vim-tomorrow-theme'
@@ -151,7 +155,6 @@ nnoremap <cr> :nohlsearch<cr>
 let g:vroom_use_binstubs=1
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>a :Ack<space>
-map <Leader>d :bd<Return>
 nnoremap <c-n> :cn<cr>
 nnoremap <c-p> :cp<cr>
 
@@ -169,7 +172,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 
-map <Leader>r :w\|!spec --colour -f nested %<cr>
+map <Leader>r :w\|!bundle exec spec --colour -f nested %<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
