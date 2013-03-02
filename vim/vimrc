@@ -10,13 +10,12 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
+Bundle "honza/snipmate-snippets"
+Bundle "ervandew/supertab"
 Bundle 'tomtom/tcomment_vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
@@ -28,7 +27,6 @@ Bundle 'tpope/vim-git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'tomasr/molokai'
 
 filetype plugin indent on       " load file type plugins + indentation
 
