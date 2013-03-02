@@ -160,8 +160,8 @@ map <Leader>r :w\|!bundle exec spec --colour -f nested %<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight LineNR ctermfg=8
+highlight LineNR ctermfg=238
 highlight Visual term=none cterm=none ctermbg=240
-highlight Comment ctermfg=8
-highlight Search ctermfg=16 ctermbg=222
-highlight CursorLine term=none cterm=none ctermbg=8
+highlight Comment ctermfg=238
+highlight Search ctermfg=234 ctermbg=222
+highlight CursorLine term=none cterm=none ctermbg=236
