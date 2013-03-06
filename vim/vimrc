@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'mileszs/ack.vim'
+Bundle 'epmatsw/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -134,8 +134,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <leader><leader> <c-^>
-map <Leader>f :Ack<space>
-map <Leader>F :AckFromSearch<CR>
+map <Leader>f :Ag<space>
+map <Leader>F :AgFromSearch<CR>
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
 let g:vroom_use_binstubs=1
