@@ -31,6 +31,8 @@ alias sublime="cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User"
 alias cleardns="dscacheutil -flushcache"
 alias unic="CACHE=true bundle exec unicorn_rails -c config/unicorn_development.rb"
 alias uni="bundle exec unicorn_rails -c config/unicorn_development.rb"
+alias be="bundle exec"
+alias t="ruby -I test"
 alias z="zeus"
 
 source ~/.git-completion.sh

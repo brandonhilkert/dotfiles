@@ -110,8 +110,7 @@ let mapleader=","
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-P
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>b :CtrlPBuffer<cr>
-let g:ctrlp_map = '<leader>t'
+map <c-b> :CtrlPBuffer<cr>
 let g:ctrlp_max_height = 20
 
 " ignore Rubinius, Sass cache files
@@ -138,11 +137,7 @@ map <Leader>f :Ag<space>
 map <Leader>F :AgFromSearch<CR>
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
-let g:vroom_use_binstubs=1
 map <Leader>n :NERDTreeToggle<CR>
-
-" OPEN FILES IN DIRECTORY OF CURRENT FILE
-map <leader>e :e <c-r>=expand("%:p:h") . '/'<cr>
 
 " Open the associated file in a horizontal split (ruby)
 map <leader>s :AS<cr>
@@ -155,7 +150,45 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 
-map <Leader>r :w\|!bundle exec spec --colour -f nested %<cr>
+" rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>r :call RunNearestSpec()<CR>
+map <Leader>e :call RunLastSpec()<CR>
+
+function! RunCurrentSpecFile()
+  if InSpecFile()
+    let l:command = "bundle exec spec --color --format nested " . @%
+    call SetLastSpecCommand(l:command)
+    call RunSpecs(l:command)
+  endif
+endfunction
+
+function! RunNearestSpec()
+  if InSpecFile()
+    let l:command = "bundle exec spec --color --format nested " . @% . " -l " . line(".")
+    call SetLastSpecCommand(l:command)
+    call RunSpecs(l:command)
+  endif
+endfunction
+
+function! RunLastSpec()
+  if exists("t:last_spec_command")
+    call RunSpecs(t:last_spec_command)
+  endif
+endfunction
+
+function! InSpecFile()
+  return match(expand("%"), "_spec.rb$") != -1
+endfunction
+
+function! SetLastSpecCommand(command)
+  let t:last_spec_command = a:command
+endfunction
+
+function! RunSpecs(command)
+  execute ":w\|!echo " . a:command . " && echo && " . a:command
+endfunction
+"map <Leader>r :w\|!bundle exec spec --colour -f nested %<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
