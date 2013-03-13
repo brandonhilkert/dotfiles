@@ -122,6 +122,9 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vroom_spec_command = "spec -cfn"
 let g:vroom_rspec_version = "1.x"
+let g:vroom_map_keys = 0
+map <Leader>r :VroomRunTestFile<CR>
+map <Leader>e :VroomRunNearestTest<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
