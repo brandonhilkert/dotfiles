@@ -12,7 +12,6 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
-Bundle "ervandew/supertab"
 Bundle 'tomtom/tcomment_vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
