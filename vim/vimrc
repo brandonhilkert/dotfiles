@@ -81,7 +81,7 @@ set cmdheight=2
 " Set ex history higher
 set history=1000
 
-" Presever undo across sessions
+" Preseve undo across sessions
 if exists("&undodir")
   set undodir=~/.vim-tmp/undo//
   set undofile
