@@ -8,12 +8,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'epmatsw/ag.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
 Bundle 'tomtom/tcomment_vim'
-Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-rails'
