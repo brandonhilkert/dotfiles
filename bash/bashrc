@@ -12,7 +12,7 @@ PS1="[\[$green\]\T\[$reset\]] \[$red\]\u\[$reset\] [\[$cyan\]\w\[$reset\]]\[$pin
 PS2=" > "
 
 # the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
-export PATH=/usr/local/bin:$PATH:./bin
+export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$PATH:./bin
 
 # include node bin executables install via homebrew and npm
 export PATH=$PATH:/usr/local/share/npm/bin
