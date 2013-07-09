@@ -99,6 +99,9 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" Don't return to the last line of a Git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 " Searching
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
