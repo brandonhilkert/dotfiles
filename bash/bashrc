@@ -17,9 +17,6 @@ export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$PATH:.
 # include node bin executables
 export PATH=$PATH:/usr/local/share/npm/bin
 
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # aliases
 alias l="ls -l"
 alias ll="ls -al"
@@ -41,6 +38,10 @@ source ~/.git-completion.sh
 stty -ixon -ixoff
 
 eval "$(rbenv init -)"
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_FREE_MIN=200000
 
