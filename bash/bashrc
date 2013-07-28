@@ -31,6 +31,8 @@ alias rdb="rake db:migrate db:test:prepare"
 alias be="bundle exec"
 alias t="ruby -I test"
 alias z="zeus"
+alias blog="cd ~/Dropbox/code/blog"
+alias watch="cd ~/Dropbox/code/blog && bin/rake watch"
 
 source ~/.git-completion.sh
 
