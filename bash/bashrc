@@ -33,6 +33,7 @@ alias t="ruby -I test"
 alias z="zeus"
 alias blog="cd ~/Dropbox/code/blog"
 alias watch="cd ~/Dropbox/code/blog && bin/rake watch"
+alias es="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 
 source ~/.git-completion.sh
 
