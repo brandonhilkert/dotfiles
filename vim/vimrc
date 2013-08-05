@@ -27,6 +27,7 @@ Bundle 'tpope/vim-git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on       " load file type plugins + indentation
 
