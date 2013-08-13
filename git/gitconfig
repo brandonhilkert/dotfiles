@@ -19,6 +19,7 @@
   create = !sh -c 'git co -b \"$0\" && git push origin \"$0\" && git config \"branch.$0.remote\" origin && git config \"branch.$0.merge\" \"refs/heads/$0\"'
   purge = !sh -c 'git branch -d \"$0\" && git push origin :\"$0\"'
   fuckit = !git clean -d -f && git reset --hard
+  url =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
 [color]
   ui = true
 [format]
