@@ -48,6 +48,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export RUBY_GC_MALLOC_LIMIT=90000000
 export RUBY_FREE_MIN=200000
 
+export GOPATH=~/Dropbox/code/go
+export PATH=$PATH:$GOPATH/bin
+
 export JAVA_HOME=/Library/Java/Home
 export AWS_IAM_HOME=~/Dropbox/code/aws/iam
 export AWS_AUTO_SCALING_HOME=~/Dropbox/code/aws/autoscaling
@@ -56,3 +59,16 @@ export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
 export PATH="$PATH:$AWS_IAM_HOME/bin"
 export PATH="$PATH:$AWS_AUTO_SCALING_HOME/bin"
 export PATH="$PATH:$EC2_HOME/bin"
+
+tab() # new tab from current dir
+{
+  osascript -e "
+  tell application \"iTerm\"
+    tell the first terminal
+      launch session \"Default Session\"
+      tell the last session
+        write text \"cd $(pwd)\"
+      end tell
+    end tell
+  end tell"
+}

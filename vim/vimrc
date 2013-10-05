@@ -7,8 +7,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'epmatsw/ag.vim'
-Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tlib_vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
@@ -55,6 +55,7 @@ set showmatch
 set showcmd                     " display incomplete commands
 set ruler
 set number
+set relativenumber
 set wildmenu
 set wildmode=longest,list
 set visualbell
