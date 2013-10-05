@@ -20,6 +20,8 @@ export PATH=$PATH:/usr/local/share/npm/bin
 # aliases
 alias l="ls -l"
 alias ll="ls -al"
+alias gp="git push"
+alias gph="git push heroku"
 alias reload="source ~/.bash_profile"
 alias dropbox="cd ~/Dropbox"
 alias code="cd ~/Dropbox/code"
