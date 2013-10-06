@@ -18,6 +18,7 @@ export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$PATH:.
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # aliases
+alias v="vim"
 alias l="ls -l"
 alias ll="ls -al"
 alias gp="git push"
