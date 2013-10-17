@@ -37,6 +37,7 @@ alias z="zeus"
 alias blog="cd ~/Dropbox/code/blog"
 alias watch="cd ~/Dropbox/code/blog && bin/rake watch"
 alias es="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
+alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
 
 source ~/.git-completion.sh
 
