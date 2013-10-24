@@ -96,6 +96,9 @@ au VimResized * :wincmd =
 " Remove trailing whitepsace from Ruby files on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Spellcheck markdown files
+autocmd Filetype markdown setlocal spell
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
