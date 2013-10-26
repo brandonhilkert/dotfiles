@@ -192,3 +192,4 @@ highlight Visual term=none cterm=none ctermbg=240
 highlight Comment ctermfg=238
 highlight Search ctermfg=234 ctermbg=222
 highlight CursorLine term=none cterm=none ctermbg=236
+highlight SpellBad term=underline cterm=underline ctermfg=Red ctermbg=none
