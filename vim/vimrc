@@ -46,7 +46,6 @@ colorscheme default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set cursorline
-set laststatus=2
 
 " Don't show current mode b/c we have powerline
 set noshowmode
@@ -127,8 +126,8 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vroom
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vroom_spec_command = "spec -cfn"
-let g:vroom_rspec_version = "1.x"
+let g:vroom_spec_command = "rspec -cfn"
+" let g:vroom_rspec_version = "1.x"
 let g:vroom_map_keys = 0
 map <Leader>r :VroomRunTestFile<CR>
 map <Leader>e :VroomRunNearestTest<CR>
@@ -166,6 +165,18 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader><leader> <c-^>
 map <Leader>f :Ag<space>
 map <Leader>F :AgFromSearch<CR>
+
+if executable('ag')
+  " Use ag over grep
+  " set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
 map <Leader>n :NERDTreeToggle<CR>
