@@ -61,6 +61,7 @@ set visualbell
 set splitright
 set splitbelow
 set clipboard=unnamed
+set laststatus=2
 
 " Store temporary files in a central spot
 set backup
