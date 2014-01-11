@@ -114,6 +114,9 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 " Don't return to the last line of a Git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
+" Automatically reload vimrc when it's saved
+autocmd! BufWritePost vimrc so ~/.vimrc
+
 " Searching
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
@@ -121,6 +124,62 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 let mapleader=","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mouse
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Send more characters for redraws
+set ttyfast
+
+" Enable mouse use in all modes
+set mouse=a
+
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup markdown
+    au!
+    autocmd Syntax markdown setlocal textwidth=79
+    if exists("&colorcolumn")
+        autocmd Syntax markdown setlocal colorcolumn=80
+    endif
+augroup END
+
+" Highlight words to avoid in tech writing
+" =======================================
+"
+"   obviously, basically, simply, of course, clearly,
+"   just, everyone knows, However, So, easy
+
+"   http://css-tricks.com/words-avoid-educational-writing/
+
+highlight TechWordsToAvoid ctermbg=red ctermfg=white
+function MatchTechWordsToAvoid()
+        match TechWordsToAvoid /\c\<\(that\|obviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy\)\>/
+endfunction
+autocmd FileType markdown call MatchTechWordsToAvoid()
+autocmd BufWinEnter *.md call MatchTechWordsToAvoid()
+autocmd InsertEnter *.md call MatchTechWordsToAvoid()
+autocmd InsertLeave *.md call MatchTechWordsToAvoid()
+autocmd BufWinLeave *.md call clearmatches()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ShowFileInNERDTree()
+  if exists("t:NERDTreeBufName")
+    NERDTreeFind
+  else
+    NERDTree
+    wincmd l
+    NERDTreeFind
+  endif
+endfunction
+map <leader>N :call ShowFileInNERDTree()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-P
@@ -211,3 +270,4 @@ highlight Comment ctermfg=238
 highlight Search ctermfg=234 ctermbg=222
 highlight CursorLine term=none cterm=none ctermbg=236
 highlight SpellBad term=underline cterm=underline ctermfg=Red ctermbg=none
+
