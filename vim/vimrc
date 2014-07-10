@@ -197,6 +197,8 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 let g:vroom_spec_command = "rspec -cfn"
 " let g:vroom_rspec_version = "1.x"
 let g:vroom_map_keys = 0
+" let g:vroom_use_spring = 1
+let g:vroom_test_unit_command = "bin/rake test "
 map <Leader>r :VroomRunTestFile<CR>
 map <Leader>e :VroomRunNearestTest<CR>
 
