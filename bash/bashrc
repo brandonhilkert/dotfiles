@@ -34,8 +34,8 @@ alias gcom="git co master"
 alias gco="git checkout -b"
 alias gph="git push heroku"
 alias reload="source ~/.bash_profile"
-alias dropbox="cd ~/Dropbox"
-alias code="cd ~/Dropbox/code"
+alias dropbox="cd ~/Google\ Drive"
+alias code="cd ~/Golgle\ Drive/code"
 alias s="subl ."
 alias cleardns="dscacheutil -flushcache"
 alias unic="CACHE=true bundle exec unicorn_rails -c config/unicorn_development.rb"
@@ -43,7 +43,7 @@ alias uni="bundle exec unicorn_rails -c config/unicorn_development.rb"
 alias be="bundle exec"
 alias rdb="be rake db:migrate db:test:prepare"
 alias t="ruby -I test"
-alias watch="cd ~/Dropbox/code/blog && bin/rake watch"
+alias watch="cd ~/Google\ Drive/code/blog && bin/rake watch"
 alias es="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
 alias slave="ssh -L 3306:localhost:3306 dbslave"
@@ -58,14 +58,14 @@ eval "$(rbenv init -)"
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export GOPATH=~/Dropbox/code/go
+export GOPATH=~/Google\ Drive/code/go
 export PATH=$PATH:$GOPATH/bin
 
 export JAVA_HOME=/Library/Java/Home
-export AWS_IAM_HOME=~/Dropbox/code/aws/iam
-export AWS_AUTO_SCALING_HOME=~/Dropbox/code/aws/autoscaling
-export EC2_HOME=~/Dropbox/code/aws/ec2
-export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
+export AWS_IAM_HOME=~/Google\ Drive/code/aws/iam
+export AWS_AUTO_SCALING_HOME=~/Google\ Drive/code/aws/autoscaling
+export EC2_HOME=~/Google\ Drive/code/aws/ec2
+export AWS_CREDENTIAL_FILE=~/Google\ Drive/code/aws/aws-credential.template
 export PATH="$PATH:$AWS_IAM_HOME/bin"
 export PATH="$PATH:$AWS_AUTO_SCALING_HOME/bin"
 export PATH="$PATH:$EC2_HOME/bin"
