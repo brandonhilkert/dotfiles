@@ -9,6 +9,7 @@ ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitignore /Users/bhilkert/.git
 
 mkdir -p /Users/bhilkert/.vim-tmp/undo
 ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vimrc /Users/bhilkert/.vimrc
+ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vim /Users/bhilkert/.vim
 
 ln -fns /Users/bhilkert/Dropbox/code/dotfiles/ack/ackrc /Users/bhilkert/.ackrc
 
