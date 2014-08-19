@@ -32,6 +32,7 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'stephpy/vim-yaml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
+Bundle 'fatih/vim-go'
 
 
 filetype plugin indent on       " load file type plugins + indentation
@@ -193,7 +194,7 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vroom
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vroom_spec_command = "rspec -cfn"
+" let g:vroom_spec_command = "rspec -cfn"
 " let g:vroom_rspec_version = "1.x"
 let g:vroom_map_keys = 0
 " let g:vroom_use_spring = 1
@@ -263,6 +264,16 @@ nnoremap <leader>x :x<CR>
 
 " Reformat paragraphs and list.
 nnoremap R gq}
+
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
