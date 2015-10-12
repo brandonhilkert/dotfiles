@@ -33,10 +33,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
 Bundle 'fatih/vim-go'
 Bundle 'elixir-lang/vim-elixir'
-<<<<<<< HEAD
 Bundle 'Chiel92/vim-autoformat'
-=======
->>>>>>> 734b0bc84e81e4d4166a402fc21eb80f1e79a032
 
 
 filetype plugin indent on       " load file type plugins + indentation
