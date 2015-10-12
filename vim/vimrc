@@ -27,12 +27,13 @@ Bundle 'tpope/vim-git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'stephpy/vim-yaml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
 Bundle 'fatih/vim-go'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'Chiel92/vim-autoformat'
 
 
 filetype plugin indent on       " load file type plugins + indentation
@@ -62,6 +63,7 @@ set number
 set relativenumber
 set wildmenu
 set wildmode=longest,list
+set lazyredraw
 set visualbell
 set splitright
 set splitbelow
@@ -140,6 +142,7 @@ set ttymouse=xterm2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled=1
 augroup markdown
     au!
     autocmd Syntax markdown setlocal textwidth=79
@@ -150,6 +153,7 @@ augroup END
 
 " Spellcheck markdown files
 autocmd Filetype markdown setlocal spell
+autocmd Filetype text setlocal spell
 
 " Highlight words to avoid in tech writing
 " =======================================
@@ -187,6 +191,19 @@ map <leader>N :call ShowFileInNERDTree()<cr>
 " Ctrl-P
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_max_height = 20
+let g:ctrlp_working_path_mode = 0
+
+if executable('ag')
+  " Use ag over grep
+  " set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 
 " ignore Rubinius, Sass cache files
 set wildignore+=tmp/**,*.scssc,*.sassc
@@ -194,8 +211,6 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vroom
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:vroom_spec_command = "rspec -cfn"
-" let g:vroom_rspec_version = "1.x"
 let g:vroom_map_keys = 0
 " let g:vroom_use_spring = 1
 let g:vroom_test_unit_command = "bin/rake test "
@@ -236,16 +251,14 @@ nnoremap <leader><leader> <c-^>
 map <Leader>f :Ag<space>
 map <Leader>F :AgFromSearch<CR>
 
-if executable('ag')
-  " Use ag over grep
-  " set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+""""""""""""""""""""""""
+""" Autoformat
+""""""""""""""""""""""""
+au BufWrite *.js :Autoformat
+au BufWrite *.css :Autoformat
+au BufWrite *.scss :Autoformat
+au BufWrite *.erb :Autoformat
+au BufWrite *.html :Autoformat
 
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
@@ -264,6 +277,11 @@ nnoremap <leader>x :x<CR>
 
 " Reformat paragraphs and list.
 nnoremap R gq}
+
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+let g:go_fmt_command = "goimports"
 
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
