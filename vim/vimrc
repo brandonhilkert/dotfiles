@@ -18,7 +18,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-rails'
-Bundle 'skalnik/vim-vroom'
+Bundle 'janko-m/vim-test'
 Bundle 'tpope/vim-bundler'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rake'
@@ -209,13 +209,13 @@ endif
 set wildignore+=tmp/**,*.scssc,*.sassc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vroom
+" Test
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vroom_map_keys = 0
-" let g:vroom_use_spring = 1
-let g:vroom_test_unit_command = "bin/rake test "
-map <Leader>r :VroomRunTestFile<CR>
-map <Leader>e :VroomRunNearestTest<CR>
+nmap <silent> <Leader>r :TestFile<CR>
+nmap <silent> <Leader>e :TestNearest<CR>
+nmap <silent> <Leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -256,9 +256,9 @@ map <Leader>F :AgFromSearch<CR>
 """"""""""""""""""""""""
 au BufWrite *.js :Autoformat
 au BufWrite *.css :Autoformat
-au BufWrite *.scss :Autoformat
-au BufWrite *.erb :Autoformat
-au BufWrite *.html :Autoformat
+" au BufWrite *.scss :Autoformat
+" au BufWrite *.erb :Autoformat
+" au BufWrite *.html :Autoformat
 
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
