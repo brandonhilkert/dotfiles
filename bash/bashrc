@@ -62,9 +62,7 @@ export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
 export JAVA_HOME=/Library/Java/Home
-export EC2_HOME=~/Dropbox/code/aws/ec2
 export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
-export PATH="$PATH:$EC2_HOME/bin"
 
 tab() # new tab from current dir
 {
