@@ -12,7 +12,7 @@ PS1="[\[$green\]\T\[$reset\]] \[$red\]\u\[$reset\] [\[$cyan\]\w\[$reset\]]\[$pin
 PS2=" > "
 
 # the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$PATH:./bin
+export PATH=/usr/local/bin:$PATH:./bin
 
 # include node bin executables
 export PATH=$PATH:/usr/local/share/npm/bin
@@ -37,14 +37,12 @@ alias reload="source ~/.bash_profile"
 alias dropbox="cd ~/Dropbox"
 alias godir="cd ~/Dropbox/code/go/src/github.com"
 alias code="cd ~/Dropbox/code"
-alias s="subl ."
 alias cleardns="dscacheutil -flushcache"
 alias unic="CACHE=true bundle exec unicorn_rails -c config/unicorn_development.rb"
 alias uni="bundle exec unicorn_rails -c config/unicorn_development.rb"
 alias be="bundle exec"
 alias rdb="be rake db:migrate db:test:prepare"
 alias t="ruby -I test"
-alias es="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
 alias slave="ssh -L 3306:localhost:3306 dbslave"
 alias fs="foreman start"
@@ -64,12 +62,8 @@ export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
 export JAVA_HOME=/Library/Java/Home
-export AWS_IAM_HOME=~/Dropbox/code/aws/iam
-export AWS_AUTO_SCALING_HOME=~/Dropbox/code/aws/autoscaling
 export EC2_HOME=~/Dropbox/code/aws/ec2
 export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
-export PATH="$PATH:$AWS_IAM_HOME/bin"
-export PATH="$PATH:$AWS_AUTO_SCALING_HOME/bin"
 export PATH="$PATH:$EC2_HOME/bin"
 
 tab() # new tab from current dir
