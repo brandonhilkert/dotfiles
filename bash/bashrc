@@ -61,16 +61,16 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
-export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
 export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
 
 tab() # new tab from current dir
 {
   osascript -e "
-  tell application \"iTerm\"
-    tell the first terminal
-      launch session \"Default Session\"
-      tell the last session
+  tell application \"iTerm2\"
+    tell current window
+      set newTab to (create tab with profile \"Brandon\")
+      tell current session
         write text \"cd $(pwd)\"
       end tell
     end tell

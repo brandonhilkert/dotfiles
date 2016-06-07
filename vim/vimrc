@@ -251,15 +251,6 @@ nnoremap <leader><leader> <c-^>
 map <Leader>f :Ag<space>
 map <Leader>F :AgFromSearch<CR>
 
-""""""""""""""""""""""""
-""" Autoformat
-""""""""""""""""""""""""
-au BufWrite *.js :Autoformat
-au BufWrite *.css :Autoformat
-" au BufWrite *.scss :Autoformat
-" au BufWrite *.erb :Autoformat
-" au BufWrite *.html :Autoformat
-
 imap ii <esc>
 nnoremap <cr> :nohlsearch<cr>
 map <Leader>n :NERDTreeToggle<CR>
