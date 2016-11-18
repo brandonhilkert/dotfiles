@@ -32,9 +32,7 @@ Bundle 'stephpy/vim-yaml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
 Bundle 'fatih/vim-go'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'Chiel92/vim-autoformat'
-
+Bundle 'junegunn/vim-easy-align'
 
 filetype plugin indent on       " load file type plugins + indentation
 
@@ -45,7 +43,6 @@ set t_Co=256 " 256 colors
 set guifont=Menlo:h14
 ":color Tomorrow-Night-Eighties
 ":set background=dark
-colorscheme default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -268,6 +265,8 @@ nnoremap <leader>x :x<CR>
 
 " Reformat paragraphs and list.
 nnoremap R gq}
+
+xmap ga <Plug>(EasyAlign)
 
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
