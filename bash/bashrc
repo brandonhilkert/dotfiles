@@ -22,8 +22,6 @@ alias v="vim"
 alias l="ls -l"
 alias ll="ls -al"
 alias gp="git push"
-alias gpull="git pull"
-alias gb="git branch"
 alias ga="git add -p"
 alias gs="git status"
 alias gaa="git add --all"
@@ -36,15 +34,13 @@ alias gph="git push heroku"
 alias reload="source ~/.bash_profile"
 alias dropbox="cd ~/Dropbox"
 alias godir="cd ~/Dropbox/code/go/src/github.com"
-alias code="cd ~/Dropbox/code"
 alias cleardns="dscacheutil -flushcache"
-alias unic="CACHE=true bundle exec unicorn_rails -c config/unicorn_development.rb"
-alias uni="bundle exec unicorn_rails -c config/unicorn_development.rb"
 alias be="bundle exec"
 alias rdb="be rake db:migrate db:test:prepare"
 alias t="ruby -I test"
 alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
 alias slave="ssh -L 3306:localhost:3306 dbslave"
+alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
 alias fs="foreman start"
 alias dock='eval "$(docker-machine env default)"'
 
@@ -58,11 +54,17 @@ eval "$(rbenv init -)"
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Google cloud SDK cli
+export PATH="~/Dropbox/code/google-cloud-sdk/bin:$PATH"
+
 export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
-export JAVA_HOME=/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+# Rust programming language
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export AWS_CREDENTIAL_FILE=~/Dropbox/code/aws/aws-credential.template
+export PYSPARK_PYTHON=python3
 
 tab() # new tab from current dir
 {
@@ -76,3 +78,6 @@ tab() # new tab from current dir
     end tell
   end tell"
 }
+
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -31,7 +31,6 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'stephpy/vim-yaml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
-Bundle 'fatih/vim-go'
 Bundle 'junegunn/vim-easy-align'
 
 filetype plugin indent on       " load file type plugins + indentation
