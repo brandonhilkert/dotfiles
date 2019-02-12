@@ -15,7 +15,7 @@
 	<key>Bell</key>
 	<false/>
 	<key>CommandString</key>
-	<string>cd ~/Dropbox/code</string>
+	<string>cd ~/code</string>
 	<key>CursorColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
