@@ -61,6 +61,7 @@ set wildmenu
 set wildmode=longest,list
 set lazyredraw
 set visualbell
+set belloff=all
 set splitright
 set splitbelow
 set clipboard=unnamed
