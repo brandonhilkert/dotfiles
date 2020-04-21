@@ -2,38 +2,39 @@ set nocompatible                " choose no compatibility with legacy vi
 set encoding=utf-8
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'epmatsw/ag.vim'
-Bundle 'tomtom/tlib_vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'nono/vim-handlebars'
-Bundle 'tpope/vim-rails'
-Bundle 'janko-m/vim-test'
-Bundle 'tpope/vim-bundler'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-git'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'stephpy/vim-yaml'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'ap/vim-css-color'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'fatih/vim-go'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'epmatsw/ag.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'nono/vim-handlebars'
+Plugin 'tpope/vim-rails'
+Plugin 'janko-m/vim-test'
+Plugin 'tpope/vim-bundler'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-git'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'stephpy/vim-yaml'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'ap/vim-css-color'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'fatih/vim-go'
 
+call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
