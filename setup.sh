@@ -1,18 +1,18 @@
 #!/bin/bash
 
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/bash/bashrc /Users/bhilkert/.bashrc
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/bash/bash_profile /Users/bhilkert/.bash_profile
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/bash/bashrc /Users/brandonhilkert/.bashrc
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/bash/bash_profile /Users/brandonhilkert/.bash_profile
 
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/git-completion.sh /Users/bhilkert/.git-completion.sh
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitconfig /Users/bhilkert/.gitconfig
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/git/gitignore /Users/bhilkert/.gitignore
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/git/git-completion.sh /Users/brandonhilkert/.git-completion.sh
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/git/gitconfig /Users/brandonhilkert/.gitconfig
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/git/gitignore /Users/brandonhilkert/.gitignore
 
-mkdir -p /Users/bhilkert/.vim-tmp/undo
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vimrc /Users/bhilkert/.vimrc
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/vim/vim /Users/bhilkert/.vim
+mkdir -p /Users/brandonhilkert/.vim-tmp/undo
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/vim/vimrc /Users/brandonhilkert/.vimrc
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/vim/vim /Users/brandonhilkert/.vim
 
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/ack/ackrc /Users/bhilkert/.ackrc
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/ack/ackrc /Users/brandonhilkert/.ackrc
 
-ln -fns /Users/bhilkert/Dropbox/code/dotfiles/ag/agignore /Users/bhilkert/.agignore
+ln -fns /Users/brandonhilkert/Dropbox/code/dotfiles/ag/agignore /Users/brandonhilkert/.agignore
 
 osx/setup.sh
