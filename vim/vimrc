@@ -32,6 +32,7 @@ Bundle 'stephpy/vim-yaml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'ap/vim-css-color'
 Bundle 'junegunn/vim-easy-align'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on       " load file type plugins + indentation
 
@@ -51,7 +52,7 @@ set cursorline
 
 " Don't show current mode b/c we have powerline
 set noshowmode
-
+set autowrite                   " Automatically save before :next, :make etc.
 set showmatch
 set showcmd                     " display incomplete commands
 set ruler
@@ -99,6 +100,8 @@ au VimResized * :wincmd =
 
 " Remove trailing whitepsace from Ruby files on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:ruby_indent_access_modifier_style="indent"
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -245,6 +248,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <leader><leader> <c-^>
+" Instead of stumbling into ex mode, repeat the last macro used.
+nnoremap Q @@
 map <Leader>f :Ag<space>
 map <Leader>F :AgFromSearch<CR>
 
@@ -272,16 +277,31 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
 
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=8
+au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
