@@ -14,9 +14,6 @@ PS2=" > "
 # the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
 export PATH=/usr/local/bin:$PATH:./bin
 
-# include node bin executables
-export PATH=$PATH:/usr/local/share/npm/bin
-
 export GOPATH=$HOME/code/go
 
 # include golang bin executables
@@ -77,6 +74,7 @@ tab() # new tab from current dir
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
