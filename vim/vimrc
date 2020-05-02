@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'epmatsw/ag.vim'
 Plugin 'tomtom/tlib_vim'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
@@ -16,13 +15,11 @@ Plugin 'honza/vim-snippets'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'nono/vim-handlebars'
 Plugin 'tpope/vim-rails'
 Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-bundler'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-git'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
@@ -32,7 +29,6 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ap/vim-css-color'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
@@ -40,8 +36,8 @@ filetype plugin indent on       " load file type plugins + indentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256 " 256 colors
-set guifont=Menlo:h14
+" set t_Co=256 " 256 colors
+" set guifont=Menlo:h14
 " let base16colorspace=256
 " colorscheme base16-default-dark
 " colorscheme base16-tomorrow-night
@@ -144,7 +140,6 @@ set ttymouse=xterm2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_markdown_folding_disabled=1
 augroup markdown
     au!
     autocmd Syntax markdown setlocal textwidth=79
@@ -207,7 +202,7 @@ if executable('ag')
 endif
 
 
-" ignore Rubinius, Sass cache files
+" ignore Sass cache files
 set wildignore+=tmp/**,*.scssc,*.sassc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,28 +215,6 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>m :call RenameFile()<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Move around splits with <c-hjkl>
@@ -250,6 +223,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <leader><leader> <c-^>
+
 " Instead of stumbling into ex mode, repeat the last macro used.
 nnoremap Q @@
 map <Leader>f :Ag<space>
@@ -278,31 +252,6 @@ xmap ga <Plug>(EasyAlign)
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_deadline = "5s"
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,4 +264,3 @@ highlight Search ctermfg=234 ctermbg=222
 highlight CursorLine term=none cterm=none ctermbg=236
 highlight CursorLineNR term=none cterm=none
 highlight SpellBad term=underline cterm=underline ctermfg=Red ctermbg=none
-
