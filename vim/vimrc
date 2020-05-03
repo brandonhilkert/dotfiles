@@ -29,6 +29,7 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ap/vim-css-color'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'zeis/vim-kolor'
 
 call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
@@ -41,6 +42,7 @@ filetype plugin indent on       " load file type plugins + indentation
 " let base16colorspace=256
 " colorscheme base16-default-dark
 " colorscheme base16-tomorrow-night
+" colorscheme kolor
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
