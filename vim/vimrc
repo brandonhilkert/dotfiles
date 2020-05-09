@@ -43,6 +43,8 @@ filetype plugin indent on       " load file type plugins + indentation
 " colorscheme base16-default-dark
 " colorscheme base16-tomorrow-night
 " colorscheme kolor
+colorscheme default
+set background=light
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
