@@ -1,0 +1,31 @@
+[/]
+default='47141ca3-2252-4c68-addc-0d08d6205066'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '47141ca3-2252-4c68-addc-0d08d6205066']
+
+[:47141ca3-2252-4c68-addc-0d08d6205066]
+allow-bold=false
+background-color='#1D1D1F1F2121'
+bold-color='#C5C5C8C8C6C6'
+bold-color-same-as-fg=true
+bold-is-bright=false
+default-size-columns=120
+default-size-rows=48
+font='Menlo 11'
+foreground-color='#C5C5C8C8C6C6'
+highlight-background-color='#'
+highlight-colors-set=true
+highlight-foreground-color='#'
+login-shell=false
+palette=['#000000000000', '#CCCC66666666', '#B5B5BDBD6868', '#F0F0C6C67474', '#8181A2A2BEBE', '#B2B29393BBBB', '#8A8ABEBEB7B7', '#FFFFFEFEFEFE', '#000000000000', '#CCCC66666666', '#B5B5BDBD6868', '#F0F0C5C57474', '#8080A1A1BDBD', '#B2B29494BABA', '#8A8ABDBDB6B6', '#FFFFFEFEFEFE']
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Brandon'
+
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,43,54)'
+default-size-columns=120
+default-size-rows=48
+foreground-color='rgb(131,148,150)'
+palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(238,232,213)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
+
