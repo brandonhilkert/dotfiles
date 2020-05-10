@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y libreadline-dev libssl-dev libpq-dev htop tmux redis-server
+sudo apt install -y libreadline-dev libssl-dev libpq-dev htop tmux redis-server vim vim-gui-common
 
 ln -fns /Users/brandonhilkert/code/dotfiles/bash/bashrc /Users/brandonhilkert/.bashrc
 ln -fns /home/brandonhilkert/code/dotfiles/ack/ackrc /home/brandonhilkert/.ackrc
