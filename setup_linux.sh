@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt install -y libreadline-dev libssl-dev libpq-dev htop tmux redis-server vim vim-gui-common
 
-ln -fns /Users/brandonhilkert/code/dotfiles/bash/bashrc /Users/brandonhilkert/.bashrc
+ln -fns /home/brandonhilkert/code/dotfiles/linux/bashrc /home/brandonhilkert/.bashrc
 ln -fns /home/brandonhilkert/code/dotfiles/ack/ackrc /home/brandonhilkert/.ackrc
 ln -fns /home/brandonhilkert/code/dotfiles/ag/agignore /home/brandonhilkert/.agignore
 ln -fns /home/brandonhilkert/code/dotfiles/git/git-completion.sh /home/brandonhilkert/.git-completion.sh
@@ -22,6 +22,9 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 ~/.rbenv/bin/rbenv init
 source ~/.bashrc
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
 rbenv install 2.6.6
 rbenv install 2.7.1
 rbenv global 2.6.6
