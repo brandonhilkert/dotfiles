@@ -1,9 +1,10 @@
 #!/bin/bash
 
-ln -fns /Users/brandonhilkert/code/dotfiles/bash/bashrc /Users/brandonhilkert/.bashrc
-ln -fns /Users/brandonhilkert/code/dotfiles/bash/bash_profile /Users/brandonhilkert/.bash_profile
+ln -fns /Users/brandonhilkert/code/dotfiles/zsh/zshrc /Users/brandonhilkert/.zshrc
 
-ln -fns /Users/brandonhilkert/code/dotfiles/git/git-completion.sh /Users/brandonhilkert/.git-completion.sh
+mkdir ~/.zsh
+ln -fns /Users/brandonhilkert/code/dotfiles/git/git-completion.bash /Users/brandonhilkert/.zsh/.git-completion.bash
+ln -fns /Users/brandonhilkert/code/dotfiles/git/git-completion.zsh /Users/brandonhilkert/.zsh/.git-completion.zsh
 ln -fns /Users/brandonhilkert/code/dotfiles/git/gitconfig /Users/brandonhilkert/.gitconfig
 ln -fns /Users/brandonhilkert/code/dotfiles/git/gitignore /Users/brandonhilkert/.gitignore
 
@@ -15,4 +16,4 @@ ln -fns /Users/brandonhilkert/code/dotfiles/ack/ackrc /Users/brandonhilkert/.ack
 
 ln -fns /Users/brandonhilkert/code/dotfiles/ag/agignore /Users/brandonhilkert/.agignore
 
-osx/setup.sh
+#osx/setup.sh
