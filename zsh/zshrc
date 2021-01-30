@@ -12,7 +12,6 @@ gitBranch() { git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.
 
 PROMPT='[%F{green}%D{%L:%M:%S}%f] %F{red}%n%f [%F{cyan}%~%f]%B%F{005}$(gitBranch)%f%b $ '
 
-
 # the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
 export PATH=/usr/local/bin:$PATH:./bin
 
@@ -43,8 +42,6 @@ alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwhol
 alias slave="ssh -L 3306:localhost:3306 dbslave"
 alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
 alias fs="foreman start"
-
-# source ~/.git-completion.sh
 
 # Shut off control flow in terminal so we can use vim shortcut <c-s>
 stty -ixon -ixoff
