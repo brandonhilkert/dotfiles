@@ -1,0 +1,76 @@
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+
+gitStatus() { git diff --quiet 2> /dev/null || echo ' *' ; }
+gitBranch() { git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(gitStatus))/" ; }
+
+PROMPT='[%F{green}%D{%L:%M:%S}%f] %F{red}%n%f [%F{cyan}%~%f]%B%F{005}$(gitBranch)%f%b $ '
+
+# the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
+export PATH=/usr/local/bin:$PATH:./bin
+
+export GOPATH=$HOME/code/go
+
+# include golang bin executables
+export PATH=$GOPATH/bin:$PATH
+
+# aliases
+alias v="vim"
+alias l="ls -l"
+alias ll="ls -al"
+alias gp="git push"
+alias ga="git add -p"
+alias gs="git status"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gl="git co -"
+alias gm="git merge"
+alias gcom="git co master"
+alias gco="git checkout -b"
+alias gph="git push heroku"
+alias reload="source ~/.zshrc"
+alias cleardns="dscacheutil -flushcache"
+alias be="bundle exec"
+alias t="ruby -I test"
+alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
+alias slave="ssh -L 3306:localhost:3306 dbslave"
+alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
+alias fs="foreman start"
+
+# Shut off control flow in terminal so we can use vim shortcut <c-s>
+stty -ixon -ixoff
+
+eval "$(rbenv init -)"
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Rust programming language
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export PYSPARK_PYTHON=python3
+export EDITOR=vim
+
+tab() # new tab from current dir
+{
+  osascript -e "
+  tell application \"iTerm2\"
+    tell current window
+      set newTab to (create tab with profile \"Brandon\")
+      tell current session
+        write text \"cd $(pwd)\"
+      end tell
+    end tell
+  end tell"
+}
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
