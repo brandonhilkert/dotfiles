@@ -166,7 +166,7 @@ autocmd Filetype text setlocal spell
 
 highlight TechWordsToAvoid ctermbg=red ctermfg=white
 function MatchTechWordsToAvoid()
-        match TechWordsToAvoid /\c\<\(that\|obviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy\)\>/
+        match TechWordsToAvoid /\c\<\(that\|obviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy\|very\|pretty\|surely\|quite\|in\sfact\|actually\)\>/
 endfunction
 autocmd FileType markdown call MatchTechWordsToAvoid()
 autocmd BufWinEnter *.md call MatchTechWordsToAvoid()
