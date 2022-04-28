@@ -30,6 +30,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ap/vim-css-color'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'zeis/vim-kolor'
+Plugin 'andymass/vim-matchup'
 
 call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
@@ -127,6 +128,8 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 let mapleader=","
+
+let g:snipMate = { 'snippet_version' : 1 }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mouse
@@ -261,6 +264,7 @@ au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=8 shiftwidth=8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color stuff b/c it doesn't work after setting the colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight MatchParen ctermbg=7
 highlight LineNR ctermfg=238
 highlight Visual term=none cterm=none ctermbg=240
 highlight Comment ctermfg=238
