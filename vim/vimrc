@@ -31,6 +31,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'zeis/vim-kolor'
 Plugin 'andymass/vim-matchup'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation

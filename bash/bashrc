@@ -42,6 +42,7 @@ alias slave="ssh -L 3306:localhost:3306 dbslave"
 alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
 alias fs="foreman start"
 alias dynamodb="docker run -p 8000:8000 amazon/dynamodb-local"
+alias rwww="aws ecs update-service --cluster rails --service www-service --force-new-deployment --region us-east-1"
 
 source ~/.git-completion.bash
 
