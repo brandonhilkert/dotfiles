@@ -2,9 +2,6 @@
 
 ln -fns /Users/brandonhilkert/code/dotfiles/zsh/zshrc /Users/brandonhilkert/.zshrc
 
-mkdir ~/.zsh
-ln -fns /Users/brandonhilkert/code/dotfiles/git/git-completion.bash /Users/brandonhilkert/.zsh/.git-completion.bash
-ln -fns /Users/brandonhilkert/code/dotfiles/git/git-completion.zsh /Users/brandonhilkert/.zsh/.git-completion.zsh
 ln -fns /Users/brandonhilkert/code/dotfiles/git/gitconfig /Users/brandonhilkert/.gitconfig
 ln -fns /Users/brandonhilkert/code/dotfiles/git/gitignore /Users/brandonhilkert/.gitignore
 
