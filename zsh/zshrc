@@ -1,8 +1,15 @@
 # Load Git completion
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh $fpath)
+FPATH=~/.rbenv/completions:"$FPATH"
 
-autoload -Uz compinit && compinit
+autoload -U compinit
+compinit
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init - --no-rehash zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
@@ -11,6 +18,9 @@ gitStatus() { git diff --quiet 2> /dev/null || echo ' *' ; }
 gitBranch() { git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(gitStatus))/" ; }
 
 PROMPT='[%F{green}%D{%L:%M:%S}%f] %F{red}%n%f [%F{cyan}%~%f]%B%F{005}$(gitBranch)%f%b $ '
+
+# include golang bin executables
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 # the path is initially set to "/bin:/sbin:/usr/bin:/usr/sbin"
 export PATH=/usr/local/bin:$PATH:./bin
@@ -48,14 +58,8 @@ stty -ixon -ixoff
 
 eval "$(rbenv init -)"
 
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Rust programming language
 export PATH="$HOME/.cargo/bin:$PATH"
-
-export PYSPARK_PYTHON=python3
-export EDITOR=vim
 
 tab() # new tab from current dir
 {
@@ -69,8 +73,3 @@ tab() # new tab from current dir
     end tell
   end tell"
 }
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

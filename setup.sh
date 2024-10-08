@@ -13,4 +13,4 @@ ln -fns /Users/brandonhilkert/code/dotfiles/ack/ackrc /Users/brandonhilkert/.ack
 
 ln -fns /Users/brandonhilkert/code/dotfiles/ag/agignore /Users/brandonhilkert/.agignore
 
-#osx/setup.sh
+ln -fns /Users/brandonhilkert/code/dotfiles/zsh/zshrc /Users/brandonhilkert/.zshrc
