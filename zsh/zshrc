@@ -49,9 +49,14 @@ alias cleardns="dscacheutil -flushcache"
 alias be="bundle exec"
 alias t="ruby -I test"
 alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
-alias slave="ssh -L 3306:localhost:3306 dbslave"
 alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
 alias fs="foreman start"
+alias scripts="aws ssm start-session --target i-0812d9f7ed64e858a"
+alias sentry="aws ssm start-session --target i-03e3cc261899b7a4f"
+alias blog="aws ssm start-session --target i-04a87e4a32f8989cc"
+alias blog-staging="aws ssm start-session --target i-0e093ad4be08e89c4"
+alias redash="aws ssm start-session --target i-08f5a256215ea6374"
+alias docker-bark="aws ssm start-session --target i-0ab97a7e91bca0287"
 
 # Shut off control flow in terminal so we can use vim shortcut <c-s>
 stty -ixon -ixoff
@@ -61,15 +66,15 @@ eval "$(rbenv init -)"
 # Rust programming language
 export PATH="$HOME/.cargo/bin:$PATH"
 
-tab() # new tab from current dir
-{
-  osascript -e "
-  tell application \"iTerm2\"
-    tell current window
-      set newTab to (create tab with profile \"Brandon\")
-      tell current session
-        write text \"cd $(pwd)\"
-      end tell
+tab() {
+  osascript <<EOF
+tell application "iTerm2"
+  tell current window
+    set newTab to (create tab with profile "Brandon")
+    tell current session
+      write text "cd '$PWD'"
     end tell
-  end tell"
+  end tell
+end tell
+EOF
 }
