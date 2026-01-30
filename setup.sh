@@ -13,4 +13,7 @@ ln -fns /Users/brandonhilkert/code/dotfiles/ack/ackrc /Users/brandonhilkert/.ack
 
 ln -fns /Users/brandonhilkert/code/dotfiles/ag/agignore /Users/brandonhilkert/.agignore
 
+mkdir -p /Users/brandonhilkert/.claude
+ln -fns /Users/brandonhilkert/code/dotfiles/claude/CLAUDE.md /Users/brandonhilkert/.claude/CLAUDE.md
+
 ln -fns /Users/brandonhilkert/code/dotfiles/zsh/zshrc /Users/brandonhilkert/.zshrc
