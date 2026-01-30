@@ -4,6 +4,7 @@
 [core]
   editor = vim
   excludesfile = /Users/brandonhilkert/.gitignore
+	commentChar = ";"
 [alias]
   co = checkout
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -34,7 +35,7 @@
 	required = true
 	process = git-lfs filter-process
 [credential]
-	helper = osxkeychain
+	helper = store
 [pull]
 	rebase = false
 [init]

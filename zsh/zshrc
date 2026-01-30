@@ -35,7 +35,6 @@ alias v="vim"
 alias l="ls -l"
 alias ll="ls -al"
 alias gp="git push"
-alias ga="git add -p"
 alias gs="git status"
 alias gaa="git add --all"
 alias gc="git commit"
@@ -49,14 +48,17 @@ alias cleardns="dscacheutil -flushcache"
 alias be="bundle exec"
 alias t="ruby -I test"
 alias delete_logs="code && find . -type f -iwholename '*log/test.log'  -o -iwholename '*log/production.log' -o -iwholename '*log/development.log' | xargs rm -f"
-alias barkdb='ssh -f -o ExitOnForwardFailure=yes -L 63333:www-vpc-replica.cudyzezdhd5j.us-east-1.rds.amazonaws.com:5432 10.0.1.162 sleep 10'
 alias fs="foreman start"
 alias scripts="aws ssm start-session --target i-0812d9f7ed64e858a"
 alias sentry="aws ssm start-session --target i-03e3cc261899b7a4f"
 alias blog="aws ssm start-session --target i-04a87e4a32f8989cc"
-alias blog-staging="aws ssm start-session --target i-0e093ad4be08e89c4"
+alias blog-staging="aws ssm start-session --target i-0ed02b41d99d361c7"
 alias redash="aws ssm start-session --target i-08f5a256215ea6374"
 alias docker-bark="aws ssm start-session --target i-0ab97a7e91bca0287"
+alias fakeblog="aws ssm start-session --target i-02a173756b14078b8"
+alias mlflow="aws ssm start-session --target i-00e89af3ee4d7fe00"
+alias cc="claude --dangerously-skip-permissions"
+alias n8n="docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n"
 
 # Shut off control flow in terminal so we can use vim shortcut <c-s>
 stty -ixon -ixoff
@@ -78,3 +80,47 @@ tell application "iTerm2"
 end tell
 EOF
 }
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
+ga() {
+  if [[ -z $1 ]]; then
+    echo "Usage: ga [branch name]"
+    return 1
+  fi
+
+  local branch="$1"
+  local base="$(basename "$PWD")"
+  local path="../${base}--${branch}"
+
+  /opt/homebrew/bin/git worktree add -b "$branch" "$path"
+
+  if [[ -f config/master.key ]]; then
+    /bin/cp config/master.key "$path/config/master.key"
+  fi
+
+  cd "$path"
+}
+
+# Remove worktree and branch from within active worktree directory.
+gd() {
+  if gum confirm "Remove worktree and branch?"; then
+    local cwd worktree branch root
+
+    cwd="$(pwd)"
+    worktree="$(basename "$cwd")"
+
+    # split on first `--`
+    root="${worktree%%--*}"
+    branch="${worktree#*--}"
+
+    # Protect against accidentally nuking a non-worktree directory
+    if [[ $root != $worktree ]]; then
+      cd "../$root"
+      /opt/homebrew/bin/git worktree remove "$worktree" --force
+      /opt/homebrew/bin/git branch -D "$branch"
+    fi
+  fi
+}
+
