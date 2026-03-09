@@ -1,4 +1,50 @@
-When you're developing apps, please following this style guide:
+
+# AI Coding Agent Guidelines
+
+Optimize for correctness, minimalism, and developer experience.
+
+---
+
+## Workflow
+
+- Enter plan mode for any non-trivial task (3+ steps or architectural decisions)
+- If something goes sideways, STOP and re-plan immediately - don't keep pushing
+- Use subagents liberally to keep main context clean — one task per subagent
+- Check in with the user before starting implementation on non-trivial work
+
+## Verification
+
+- Never consider a task complete without proving it works
+- Run tests, check logs, demonstrate correctness
+- Ask yourself: "Would a staff engineer approve this?"
+
+## Quality
+
+- For non-trivial changes: pause and ask "is there a more elegant way?"
+- If a fix feels hacky: step back and implement the elegant solution
+- Skip this for simple, obvious fixes - don't over-engineer
+
+## Bug Fixing
+
+- When given a bug report: just fix it. Don't ask for hand-holding
+- Point at logs, errors, failing tests - then resolve them autonomously
+- Go fix failing CI tests without being told how
+
+## Learning
+
+- After ANY correction from the user: update auto memory with the pattern
+- Write rules that prevent the same mistake from recurring
+- Review memory at session start for relevant project context
+
+## Core Principles
+
+- **Simplicity First**: Make every change as simple as possible. Impact minimal code.
+- **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
+- **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+
+---
+
+## Rails Apps Style Guide
 
 routes, controllers, models, concerns, views, JavaScript, CSS, tests, and
 configuration. The goal was to extract not just *what* patterns are used, but

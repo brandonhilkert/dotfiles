@@ -40,7 +40,6 @@ alias gaa="git add --all"
 alias gc="git commit"
 alias gl="git co -"
 alias gm="git merge"
-alias gcom="git co master"
 alias gco="git checkout -b"
 alias gph="git push heroku"
 alias reload="source ~/.zshrc"
@@ -58,7 +57,10 @@ alias docker-bark="aws ssm start-session --target i-0ab97a7e91bca0287"
 alias fakeblog="aws ssm start-session --target i-02a173756b14078b8"
 alias mlflow="aws ssm start-session --target i-00e89af3ee4d7fe00"
 alias cc="claude --dangerously-skip-permissions"
+alias xcodex="codex --dangerously-bypass-approvals-and-sandbox"
 alias n8n="docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n"
+alias maps="aws ssm start-session --target i-03ce397ff6a9a33de"
+alias sync="cd ../bark-brick-firmware/bark-sync-controller"
 
 # Shut off control flow in terminal so we can use vim shortcut <c-s>
 stty -ixon -ixoff
@@ -118,9 +120,28 @@ gd() {
     # Protect against accidentally nuking a non-worktree directory
     if [[ $root != $worktree ]]; then
       cd "../$root"
-      /opt/homebrew/bin/git worktree remove "$worktree" --force
+      /opt/homebrew/bin/git worktree remove "$worktree" --force --force
+      # Clean up any remaining untracked/ignored files
+      rm -rf "$cwd"
       /opt/homebrew/bin/git branch -D "$branch"
     fi
   fi
 }
 
+gcom() {
+    local branch
+
+    branch=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null)
+    branch=${branch#origin/}
+
+    if [[ "$branch" == "main" || "$branch" == "master" ]]; then
+      git switch "$branch"
+    elif git show-ref --verify --quiet refs/heads/main; then
+      git switch main
+    elif git show-ref --verify --quiet refs/heads/master; then
+      git switch master
+    else
+      echo "gcom: couldn't find main or master" >&2
+      return 1
+    fi
+  }
