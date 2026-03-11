@@ -42,6 +42,10 @@ Optimize for correctness, minimalism, and developer experience.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
+## Ruby/Rails Conventions
+
+- **No bang methods without a non-bang counterpart.** Only use `method!` when there's a corresponding `method` (e.g. `save`/`save!`). If there's only one variant, use the plain name — `complete`, not `complete!`.
+
 ---
 
 ## Rails Apps Style Guide
