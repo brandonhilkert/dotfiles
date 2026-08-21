@@ -46,6 +46,16 @@ Optimize for correctness, minimalism, and developer experience.
 
 - **No bang methods without a non-bang counterpart.** Only use `method!` when there's a corresponding `method` (e.g. `save`/`save!`). If there's only one variant, use the plain name — `complete`, not `complete!`.
 
+## Postgres Partitioned Tables (Rails)
+
+When adding a partitioned table to a Rails app that manages partitions in-app (no `pg_partman`), expect three wiring points and look for them before planning:
+
+1. **Migration** creates only the parent table: `create_table(..., id: false, options: "PARTITION BY RANGE(<col>)")`. No child partitions in the migration.
+2. **Schema-dumper initializer** (commonly `config/initializers/partitions.rb` with a constant like `PARTITION_TABLE_OPTIONS`) must list the new table and its `PARTITION BY ...` clause so `schema.rb` dumps preserve it. The same file typically teaches `SchemaDumper` to ignore child partition names (e.g. `/_\d{4}_\d+$/`).
+3. **Partition runner** (commonly `app/models/runners/pg_partition_runner.rb` or similar) orchestrates `PartitionByDay/Week/Month.new(model: Foo).premake` + `.retire(keep_to: …)` for every partitioned model. The runner is usually invoked from a dev-env hook, fixture helpers in tests, and a prod cron. Adding a new partitioned model without updating the runner means no partitions get created.
+
+**Partition-safety rule:** the partition-column value at INSERT must be in-window (e.g. `Time.zone.now`). Never pass an external timestamp (webhook `created_at`, imported file timestamp, etc.) as the partition-column value — out-of-window values raise `PG::CheckViolation`. Stash external timestamps in a JSONB/data column instead.
+
 ---
 
 ## Rails Apps Style Guide
